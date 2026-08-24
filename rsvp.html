@@ -3,278 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSVP - Marion & Brian's Tea Ceremony</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Schedule - Marion & Brian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Meow+Script&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1.8;
-            color: #3d3d3d;
-            background-color: #f9f7f4;
-            font-size: 18px;
-        }
-
-        header {
-            background-color: #f9f7f4;
-            padding: 40px 20px 25px 20px;
-            text-align: center;
-            border-bottom: 1px solid #e8e3dd;
-        }
-
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .logo {
-            font-family: 'Meow Script', cursive;
-            font-size: 48px;
-            font-weight: 400;
-            color: #a52a2a;
-            margin-bottom: 25px;
-            letter-spacing: 0;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #a52a2a;
-            text-decoration: none;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            transition: opacity 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        nav a.active {
-            border-bottom: 2px solid #a52a2a;
-            padding-bottom: 5px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 30px;
-            color: #a52a2a;
-            text-decoration: none;
-            font-weight: 400;
-            transition: opacity 0.3s ease;
-            letter-spacing: 1px;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
-        .form-container {
-            background: #fefdfb;
-            padding: 50px 40px;
-            border-radius: 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-
-        .form-container h1 {
-            color: #a52a2a;
-            margin-bottom: 10px;
-            font-size: 48px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        .form-container p {
-            color: #6b6b6b;
-            margin-bottom: 35px;
-            font-size: 18px;
-            text-align: center;
-            font-weight: 300;
-        }
-
-        .form-group {
-            margin-bottom: 28px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #3d3d3d;
-            font-weight: 500;
-            font-size: 16px;
-            letter-spacing: 0.5px;
-        }
-
-        .required {
-            color: #a52a2a;
-        }
-
-        input[type="text"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #d4cfc7;
-            border-radius: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            background-color: #fefdfb;
-            transition: border-color 0.3s ease;
-            color: #3d3d3d;
-        }
-
-        input[type="text"]:focus,
-        select:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #a52a2a;
-            background-color: #faf8f4;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .radio-option {
-            display: flex;
-            align-items: center;
-        }
-
-        input[type="radio"] {
-            margin-right: 12px;
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
-            accent-color: #a52a2a;
-        }
-
-        .radio-option label {
-            margin: 0;
-            font-weight: 300;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-        }
-
-        .submit-btn {
-            background: #a52a2a;
-            color: #f9f7f4;
-            border: 2px solid #a52a2a;
-            padding: 14px 50px;
-            font-size: 16px;
-            border-radius: 0;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            width: 100%;
-            letter-spacing: 1px;
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-        }
-
-        .submit-btn:hover {
-            background: #f9f7f4;
-            color: #a52a2a;
-            border-color: #a52a2a;
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .success-message {
-            display: none;
-            background: #f0ebe4;
-            color: #a52a2a;
-            padding: 25px;
-            border-radius: 0;
-            border: 1px solid #d4cfc7;
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 18px;
-            font-weight: 400;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        .error-message {
-            color: #a52a2a;
-            font-size: 14px;
-            margin-top: 6px;
-            display: none;
-            font-weight: 400;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .form-group.error input,
-        .form-group.error select {
-            border-color: #a52a2a;
-            background-color: #faf8f4;
-        }
-
-        @media (max-width: 768px) {
-            .form-container {
-                padding: 40px 25px;
-            }
-
-            .form-container h1 {
-                font-size: 36px;
-            }
-
-            .container {
-                padding: 15px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #3d3d3d; background-color: #f7f2ee; line-height: 1.8; }
+        header { padding: 40px 20px 20px 20px; text-align: center; }
+        .logo { font-family: 'Meow Script', cursive; font-size: 56px; color: #8b0000; text-decoration: none; }
+        nav { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; }
+        nav a { color: #8b0000; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 42px; color: #8b0000; margin-bottom: 40px; text-align: center; font-weight: 400; }
+        .event-item { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid #e2d7cd; }
+        .event-item:last-child { border-bottom: none; }
+        .time { font-weight: 600; color: #8b0000; font-size: 18px; letter-spacing: 1px; }
+        .title { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: #8b0000; margin: 5px 0 10px 0; }
+        .description { font-size: 15px; color: #5a5a5a; font-weight: 300; }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-content">
-            <div class="logo">Marion & Brian</div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="venue.html">Venue</a>
-                <a href="schedule.html">Schedule</a>
-                <a href="rsvp.html" class="active">RSVP</a>
-                <a href="dress-code.html">Dress Code</a>
-            </nav>
-        </div>
+        <a href="index.html" class="logo">Marion & Brian</a>
+        <nav>
+            <a href="venue.html">Venue</a>
+            <a href="schedule.html" style="text-decoration: underline;">Schedule</a>
+            <a href="dress-code.html">Dress Code</a>
+            <a href="rsvp.html">RSVP</a>
+        </nav>
+    </header>
+
     </header>
 
     <div class="container">
