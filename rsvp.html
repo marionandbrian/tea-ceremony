@@ -65,16 +65,14 @@
             left: 0;
             width: 100%;
             height: calc(100% + 260px);
-            border: none;
-
-            .iframe-wrapper iframe {
-            position: absolute;
-            bottom: 1000px; /* Adjust slightly up/down if you want to fine-tune where the crop starts */
-            left: 0;
-            width: 100%;
-            height: calc(100% + 260px);
-            border: none;
+            border: none; 
         }
+
+        .iframe-wrapper {
+    height: 650px;       /* 1. CROPS BOTTOM (Smaller number = cuts off more at the bottom) */
+    overflow: hidden;    /* Required to hide the overflow */
+    position: relative;
+}
     </style>
 </head>
 <body>
