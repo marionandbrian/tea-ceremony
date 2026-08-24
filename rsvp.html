@@ -50,21 +50,21 @@
             font-weight: 300;
         }
 
-        /* Container to crop out the Google Form header */
+        /* Wrapper expanded so the full form renders without an internal scrollbar */
         .iframe-wrapper {
             position: relative;
             width: 100%;
-            height: 750px; /* Overall height of the visible form area */
+            height: 1100px; /* Tall enough to display all questions fully */
             overflow: hidden;
         }
 
-        /* Shifts the iframe up to hide "RSVP here!" and the account info box */
+        /* Shifted further up to crop out both the header and email box completely */
         .iframe-wrapper iframe {
             position: absolute;
-            top: -190px; /* Adjust this value if you need to show or hide more of the top */
+            top: -260px; /* Adjust slightly up/down if you want to fine-tune where the crop starts */
             left: 0;
             width: 100%;
-            height: calc(100% + 190px);
+            height: calc(100% + 260px);
             border: none;
         }
     </style>
