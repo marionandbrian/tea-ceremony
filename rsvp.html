@@ -189,56 +189,91 @@
             <h1>RSVP</h1>
             <p class="form-subtitle">We'd love to confirm your attendance</p>
 
-            <form id="rsvpForm">
-                <div class="form-group">
-                    <label for="firstName">First Name <span class="required">*</span></label>
-                    <input type="text" id="firstName" name="firstName" required>
-                    <div class="error-message" id="firstNameError">Please enter your first name</div>
-                </div>
+           <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Marion & Brian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Meow+Script&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #3d3d3d; background-color: #f7f2ee; line-height: 1.8; }
+        header { padding: 40px 20px 20px 20px; text-align: center; }
+        .logo { font-family: 'Meow Script', cursive; font-size: 56px; color: #8b0000; text-decoration: none; }
+        nav { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; }
+        nav a { color: #8b0000; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        
+        .container { max-width: 650px; margin: 0 auto; padding: 20px 20px 60px 20px; }
+        
+        .back-link { 
+            display: inline-block; 
+            color: #8b0000; 
+            text-decoration: none; 
+            font-size: 13px; 
+            letter-spacing: 1px; 
+            margin-bottom: 25px; 
+            text-transform: uppercase;
+        }
 
-                <div class="form-group">
-                    <label for="lastName">Last Name <span class="required">*</span></label>
-                    <input type="text" id="lastName" name="lastName" required>
-                    <div class="error-message" id="lastNameError">Please enter your last name</div>
-                </div>
+        /* Boxed Form Styling */
+        .form-container {
+            background-color: #ffffff;
+            border: 1px solid #e2d7cd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-align: center;
+        }
 
-                <div class="form-group">
-                    <label>Will you be attending? <span class="required">*</span></label>
-                    <div class="radio-group">
-                        <div class="radio-option">
-                            <input type="radio" id="attending" name="attending" value="yes" required>
-                            <label for="attending">Yes, I will attend</label>
-                        </div>
-                        <div class="radio-option">
-                            <input type="radio" id="notAttending" name="attending" value="no" required>
-                            <label for="notAttending">No, I cannot attend</label>
-                        </div>
-                    </div>
-                    <div class="error-message" id="attendingError">Please select your attendance</div>
-                </div>
+        .form-container h1 { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 38px; 
+            color: #8b0000; 
+            margin-bottom: 5px; 
+            font-weight: 400; 
+        }
 
-                <div class="form-group">
-                    <label for="diet">Dietary Restrictions</label>
-                    <select id="diet" name="diet">
-                        <option value="none">None</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="vegetarian">Vegetarian</option>
-                        <option value="other">Other (please specify)</option>
-                    </select>
-                </div>
+        .form-subtitle {
+            font-size: 14px;
+            color: #7a7a7a;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
 
-                <div class="form-group" id="otherDietGroup" style="display: none;">
-                    <label for="otherDiet">Please specify your dietary restrictions</label>
-                    <textarea id="otherDiet" name="otherDiet" placeholder="e.g., gluten-free, allergies, etc."></textarea>
-                </div>
+        .iframe-wrapper iframe {
+            width: 100%;
+            height: 900px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Marion & Brian</a>
+        <nav>
+            <a href="venue.html">Venue</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="dress-code.html">Dress Code</a>
+            <a href="rsvp.html" style="text-decoration: underline;">RSVP</a>
+        </nav>
+    </header>
 
-                <div class="form-group">
-                    <label for="specialRequests">Special Requests or Notes</label>
-                    <textarea id="specialRequests" name="specialRequests" placeholder="Any other information you'd like to share?"></textarea>
-                </div>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Event</a>
 
-                <button type="submit" class="submit-btn">Submit RSVP</button>
-            </form>
+        <div class="form-container">
+            <h1>RSVP</h1>
+            <p class="form-subtitle">We'd love to confirm your attendance</p>
+
+            <!-- Embedded Google Form -->
+            <div class="iframe-wrapper">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScmjcLF4AAYejAusPzd-HE80RFA0T9OYSNLYSUVNtzRQVU7CA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
         </div>
     </div>
 
