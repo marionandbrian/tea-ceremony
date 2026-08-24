@@ -50,9 +50,21 @@
             font-weight: 300;
         }
 
-        .iframe-wrapper iframe {
+        /* Container to crop out the Google Form header */
+        .iframe-wrapper {
+            position: relative;
             width: 100%;
-            height: 900px;
+            height: 750px; /* Overall height of the visible form area */
+            overflow: hidden;
+        }
+
+        /* Shifts the iframe up to hide "RSVP here!" and the account info box */
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: -190px; /* Adjust this value if you need to show or hide more of the top */
+            left: 0;
+            width: 100%;
+            height: calc(100% + 190px);
             border: none;
         }
     </style>
@@ -75,9 +87,8 @@
             <h1>RSVP</h1>
             <p class="form-subtitle">We'd love to confirm your attendance</p>
 
-            <!-- Embedded Google Form -->
             <div class="iframe-wrapper">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScmjcLF4AAYejAusPzd-HE80RFA0T9OYSNLYSUVNtzRQVU7CA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScmjcLF4AAYejAusPzd-HE80RFA0T9OYSNLYSUVNtzRQVU7CA/viewform?embedded=true" width="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             </div>
         </div>
     </div>
