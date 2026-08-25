@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tea ceremony</title>
-
-    <!-- Balise pour le favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-</head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marion & Brian - Tea Ceremony</title>
-    <!-- Fonts matching the postcard style: Meow Script for names, Montserrat & Cormorant Garamond for text -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&family=Meow+Script&display=swap" rel="stylesheet">
+    
     <style>
         * {
             margin: 0;
@@ -23,7 +22,7 @@
             font-family: 'Montserrat', sans-serif;
             line-height: 1.8;
             color: #3d3d3d;
-            background-color: #f7f2ee; /* Match postcard light beige background */
+            background-color: #f7f2ee;
             font-size: 16px;
         }
 
@@ -33,12 +32,11 @@
             text-align: center;
         }
 
-        /* Using Meow Script for Marion & Brian */
         .logo {
             font-family: 'Meow Script', cursive;
             font-size: 64px;
             font-weight: 400;
-            color: #8b0000; /* Rich crimson red matching postcard line art */
+            color: #8b0000;
             margin-bottom: 25px;
             line-height: 1.1;
         }
@@ -109,18 +107,11 @@
             letter-spacing: 1px;
         }
 
-        .photo-section {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .photo {
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #8b0000;
-            margin: 0 auto;
+        .event-image {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 20px auto 0 auto;
         }
 
         .rsvp-section {
@@ -167,21 +158,68 @@
             color: #f7f2ee;
         }
 
+        /* Mobile Adjustments (Keeps Desktop Unchanged) */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 52px;
+            header {
+                padding: 25px 15px 15px 15px;
             }
 
-            .hero h1 {
-                font-size: 40px;
+            .logo {
+                font-size: 46px;
+                margin-bottom: 15px;
             }
 
             nav {
-                gap: 15px;
+                gap: 10px;
             }
 
             nav a {
                 font-size: 12px;
+                padding: 6px 10px;
+                letter-spacing: 1px;
+            }
+
+            .container {
+                padding: 10px 15px 40px 15px;
+            }
+
+            .hero {
+                margin-bottom: 30px;
+            }
+
+            .sub-header-tag {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero .date {
+                font-size: 16px;
+            }
+
+            .event-image {
+                max-width: 80%;
+            }
+
+            .rsvp-section {
+                padding: 35px 20px;
+                margin: 30px 0;
+            }
+
+            .rsvp-section h2 {
+                font-size: 32px;
+            }
+
+            .rsvp-button {
+                padding: 12px 30px;
+                width: 100%;
             }
         }
     </style>
@@ -205,9 +243,7 @@
             <div class="date">24TH OCTOBER 2026 • 4:00 PM</div>
         </div>
 
-        <!-- Image placed inside the container -->
-        <img src="doublel.png" style="max-width: 50%; height: auto; display: block; margin: 20px auto 0 auto;">
-
+        <img src="doublel.png" class="event-image" alt="Tea Ceremony Illustration">
 
         <div class="rsvp-section">
             <h2>We'd Love to See You!</h2>
