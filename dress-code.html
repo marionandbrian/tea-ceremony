@@ -2,322 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Tea ceremony</title>
+
+    <!-- Balise pour le favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dress Code - Marion & Brian's Tea Ceremony</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@400;500;600&family=Meow+Script&display=swap" rel="stylesheet">
+    <title>Dress Code - Marion & Brian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Meow+Script&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1.8;
-            color: #3d3d3d;
-            background-color: #f9f7f4;
-            font-size: 18px;
-        }
-
-        header {
-            background-color: #f9f7f4;
-            padding: 20px;
-            border-bottom: 1px solid #e8e3dd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        .logo {
-            font-family: 'Meow Script', cursive;
-            font-size: 48px;
-            font-weight: 400;
-            color: #a52a2a;
-            letter-spacing: 0;
-            margin: 0;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 6px;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 2.5px;
-            background-color: #a52a2a;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(10px, 10px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        nav.mobile-hidden {
-            display: none;
-        }
-
-        nav.mobile-open {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: #f9f7f4;
-            padding: 20px;
-            gap: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 1000;
-            border-bottom: 1px solid #e8e3dd;
-        }
-
-        nav a {
-            color: #a52a2a;
-            text-decoration: none;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 16px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            transition: opacity 0.3s ease;
-            text-transform: uppercase;
-        }
-
-        nav a:hover {
-            opacity: 0.7;
-        }
-
-        nav a.active {
-            border-bottom: 2px solid #a52a2a;
-            padding-bottom: 5px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            font-size: 48px;
-            color: #a52a2a;
-            margin-bottom: 40px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        .intro {
-            text-align: center;
-            font-size: 20px;
-            color: #6b6b6b;
-            margin-bottom: 50px;
-            font-weight: 300;
-        }
-
-        .dress-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .dress-option {
-            background: #fefdfb;
-            padding: 40px;
-            border-radius: 0;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            text-align: center;
-            border-top: 4px solid #a52a2a;
-        }
-
-        .dress-option h2 {
-            font-size: 28px;
-            color: #a52a2a;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .dress-option p {
-            font-size: 18px;
-            color: #3d3d3d;
-            line-height: 1.8;
-        }
-
-        .note {
-            background: #f0ebe4;
-            padding: 35px;
-            border-radius: 0;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .note h3 {
-            font-size: 22px;
-            color: #a52a2a;
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
-
-        .note p {
-            font-size: 18px;
-            color: #3d3d3d;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px 25px 20px;
-                border-bottom: 1px solid #8b0000;
-                box-shadow: 0 2px 4px rgba(139, 0, 0, 0.08);
-            }
-
-            .logo {
-                font-size: 32px;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                display: none !important;
-            }
-
-            nav.mobile-open {
-                display: flex !important;
-            }
-
-            .container {
-                padding: 25px 15px;
-            }
-
-            h1 {
-                font-size: 28px;
-                margin-bottom: 30px;
-            }
-
-            .intro {
-                font-size: 16px;
-                margin-bottom: 30px;
-            }
-
-            .dress-options {
-                grid-template-columns: 1fr;
-                gap: 25px;
-                margin-bottom: 30px;
-            }
-
-            .dress-option {
-                padding: 25px;
-            }
-
-            .dress-option h2 {
-                font-size: 22px;
-                margin-bottom: 15px;
-            }
-
-            .dress-option p {
-                font-size: 14px;
-                line-height: 1.6;
-            }
-
-            .note {
-                padding: 25px;
-                margin-top: 25px;
-            }
-
-            .note h3 {
-                font-size: 18px;
-                margin-bottom: 12px;
-            }
-
-            .note p {
-                font-size: 14px;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #3d3d3d; background-color: #f7f2ee; line-height: 1.8; }
+        header { padding: 40px 20px 20px 20px; text-align: center; }
+        .logo { font-family: 'Meow Script', cursive; font-size: 56px; color: #8b0000; text-decoration: none; }
+        nav { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; }
+        nav a { color: #8b0000; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; text-align: center; }
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 42px; color: #8b0000; margin-bottom: 20px; font-weight: 400; }
+        p { font-size: 16px; color: #5a5a5a; margin-bottom: 20px; font-weight: 300; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Marion & Brian</div>
-        <button class="hamburger" id="hamburgerBtn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav id="mobileNav">
-            <a href="index.html">Home</a>
+        <a href="index.html" class="logo">Marion & Brian</a>
+        <nav>
             <a href="venue.html">Venue</a>
             <a href="schedule.html">Schedule</a>
+            <a href="dress-code.html" style="text-decoration: underline;">Dress Code</a>
             <a href="rsvp.html">RSVP</a>
-            <a href="dress-code.html" class="active">Dress Code</a>
         </nav>
     </header>
 
     <div class="container">
         <h1>Dress Code</h1>
-
-        <div class="intro">
-            <p>We invite you to celebrate with us in either traditional or formal attire. Colorful clothing is encouraged!</p>
-        </div>
-
-        <div class="dress-options">
-            <div class="dress-option">
-                <h2>Traditional Áo Dài</h2>
-                <p>Wear the elegant traditional Vietnamese áo dài. This beautiful long tunic dress is perfect for honoring Vietnamese culture and adds a special touch to our celebration. Áo dài can be tailored or borrowed for this occasion.</p>
-            </div>
-
-            <div class="dress-option">
-                <h2>Formal Attire</h2>
-                <p>Elegant evening wear such as formal dresses, suits, and cocktail attire are all appropriate choices. We suggest choosing colors that make you feel confident and beautiful.</p>
-            </div>
-        </div>
-
-        <div class="note">
-            <h3>✨ A Colorful Celebration</h3>
-            <p>We encourage our guests to wear vibrant colors and express their personal style! Whether traditional or formal, we'd love to see the colors of celebration. However, colorful attire is not required—wear what makes you feel elegant and comfortable.</p>
-        </div>
+        <p><strong>Formal Attire or Traditional Áo Dài</strong></p>
+        <p>Guests are welcome to wear traditional Vietnamese <em>Áo Dài</em> or formal attire (suits, evening dresses, cocktail dresses).</p>
+        <p>Colorful attire is warmly welcomed and encouraged, but feel free to wear whatever makes you feel comfortable and festive!</p>
     </div>
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileNav = document.getElementById('mobileNav');
-
-        hamburgerBtn.addEventListener('click', function() {
-            hamburgerBtn.classList.toggle('active');
-            mobileNav.classList.toggle('mobile-open');
-        });
-
-        const navLinks = mobileNav.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburgerBtn.classList.remove('active');
-                mobileNav.classList.remove('mobile-open');
-            });
-        });
-    </script>
+        <!-- Image placed inside the container -->
+        <img src="doodle.png" alt="Description de l'image" style="max-width: 20%; height: auto; display: block; margin: 20px auto 0 auto;">
+    </div>
 </body>
 </html>
