@@ -2,47 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tea ceremony</title>
-
-    <!-- Balise pour le favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-</head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dress Code - Marion & Brian</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&family=Meow+Script&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; color: #3d3d3d; background-color: #f7f2ee; line-height: 1.8; }
-        header { padding: 40px 20px 20px 20px; text-align: center; }
-        .logo { font-family: 'Meow Script', cursive; font-size: 56px; color: #8b0000; text-decoration: none; }
+        header { padding: 40px 20px 20px 20px; text-align: center; position: relative; }
+        .header-top { display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .logo { font-family: 'Meow Script', cursive; font-size: 56px; color: #8b0000; text-decoration: none; margin: 0; }
+        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 6px; background: none; border: none; padding: 0; position: absolute; right: 20px; top: 20px; }
+        .hamburger span { width: 25px; height: 2.5px; background-color: #8b0000; border-radius: 2px; transition: all 0.3s ease; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
         nav { display: flex; justify-content: center; gap: 30px; margin-top: 15px; flex-wrap: wrap; }
         nav a { color: #8b0000; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; }
+        nav.mobile-open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background-color: #f7f2ee; padding: 20px; gap: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000; border-bottom: 1px solid #e8e3dd; margin-top: 0; }
         .container { max-width: 700px; margin: 0 auto; padding: 40px 20px; text-align: center; }
         h1 { font-family: 'Cormorant Garamond', serif; font-size: 42px; color: #8b0000; margin-bottom: 20px; font-weight: 400; }
         p { font-size: 16px; color: #5a5a5a; margin-bottom: 20px; font-weight: 300; }
+        
+        @media (max-width: 768px) {
+            header { padding: 15px 20px 25px 20px; border-bottom: 1px solid #8b0000; box-shadow: 0 2px 4px rgba(139, 0, 0, 0.08); }
+            .header-top { justify-content: space-between; width: 100%; }
+            .logo { font-size: 36px; margin: 0; }
+            .hamburger { display: flex; position: static; }
+            nav { display: none !important; margin-top: 0; }
+            nav.mobile-open { display: flex !important; }
+            .container { padding: 25px 15px; }
+            h1 { font-size: 28px; margin-bottom: 15px; }
+            p { font-size: 14px; margin-bottom: 15px; }
+            img { max-width: 30% !important; }
+        }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Marion & Brian</a>
-        <nav>
+        <div class="header-top">
+            <a href="index.html" class="logo">Marion & Brian</a>
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav id="mobileNav">
             <a href="venue.html">Venue</a>
             <a href="schedule.html">Schedule</a>
             <a href="dress-code.html" style="text-decoration: underline;">Dress Code</a>
             <a href="rsvp.html">RSVP</a>
         </nav>
     </header>
-
     <div class="container">
         <h1>Dress Code</h1>
         <p><strong>Formal Attire or Traditional Áo Dài</strong></p>
         <p>Guests are welcome to wear traditional Vietnamese <em>Áo Dài</em> or formal attire (suits, evening dresses, cocktail dresses).</p>
         <p>Colorful attire is warmly welcomed and encouraged, but feel free to wear whatever makes you feel comfortable and festive!</p>
-    </div>
-
-        <!-- Image placed inside the container -->
         <img src="doodle.png" alt="Description de l'image" style="max-width: 20%; height: auto; display: block; margin: 20px auto 0 auto;">
     </div>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            mobileNav.classList.toggle('mobile-open');
+        });
+
+        const navLinks = mobileNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerBtn.classList.remove('active');
+                mobileNav.classList.remove('mobile-open');
+            });
+        });
+    </script>
 </body>
 </html>
