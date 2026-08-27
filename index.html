@@ -30,6 +30,14 @@
             background-color: #f7f2ee;
             padding: 40px 20px 25px 20px;
             text-align: center;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
         }
 
         .logo {
@@ -37,8 +45,41 @@
             font-size: 64px;
             font-weight: 400;
             color: #8b0000;
-            margin-bottom: 25px;
+            margin: 0;
             line-height: 1.1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 0;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2.5px;
+            background-color: #8b0000;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         nav {
@@ -46,7 +87,7 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
         nav a {
@@ -62,6 +103,26 @@
 
         nav a:hover {
             opacity: 0.6;
+        }
+
+        nav.mobile-hidden {
+            display: none;
+        }
+
+        nav.mobile-open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #f7f2ee;
+            padding: 20px;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 1px solid #e8e3dd;
+            margin-top: 0;
         }
 
         .container {
@@ -158,29 +219,38 @@
             color: #f7f2ee;
         }
 
-        /* Mobile Adjustments (Keeps Desktop Unchanged) */
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             header {
-                padding: 25px 15px 15px 15px;
+                padding: 15px 20px;
+            }
+
+            .header-top {
+                justify-content: space-between;
+                width: 100%;
             }
 
             .logo {
-                font-size: 46px;
-                margin-bottom: 15px;
+                font-size: 36px;
+                margin: 0;
+            }
+
+            .hamburger {
+                display: flex;
+                position: static;
             }
 
             nav {
-                gap: 10px;
+                display: none !important;
+                margin-top: 0;
             }
 
-            nav a {
-                font-size: 10px;
-                padding: 4px 10px;
-                letter-spacing: 1px;
+            nav.mobile-open {
+                display: flex !important;
             }
 
             .container {
-                padding: 10px 15px 40px 15px;
+                padding: 15px 15px 40px 15px;
             }
 
             .hero {
@@ -188,37 +258,47 @@
             }
 
             .sub-header-tag {
-                font-size: 14px;
+                font-size: 12px;
                 letter-spacing: 2px;
             }
 
             .hero h1 {
-                font-size: 25px;
+                font-size: 28px;
+                margin-bottom: 10px;
             }
 
             .hero p {
-                font-size: 13px;
+                font-size: 14px;
+                margin-bottom: 15px;
             }
 
             .hero .date {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .event-image {
-                max-width: 50%;
+                max-width: 70%;
             }
 
             .rsvp-section {
-                padding: 35px 20px;
+                padding: 30px 20px;
                 margin: 30px 0;
+                border-radius: 0;
             }
 
             .rsvp-section h2 {
-                font-size: 27px;
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .rsvp-section p {
+                font-size: 14px;
+                margin-bottom: 20px;
             }
 
             .rsvp-button {
                 padding: 12px 30px;
+                font-size: 12px;
                 width: 100%;
             }
         }
@@ -226,8 +306,15 @@
 </head>
 <body>
     <header>
-        <div class="logo">Marion & Brian</div>
-        <nav>
+        <div class="header-top">
+            <div class="logo">Marion & Brian</div>
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav id="mobileNav">
             <a href="venue.html">Venue</a>
             <a href="schedule.html">Schedule</a>
             <a href="dress-code.html">Dress Code</a>
@@ -251,5 +338,23 @@
             <a href="rsvp.html" class="rsvp-button">RSVP NOW</a>
         </div>
     </div>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            mobileNav.classList.toggle('mobile-open');
+        });
+
+        const navLinks = mobileNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerBtn.classList.remove('active');
+                mobileNav.classList.remove('mobile-open');
+            });
+        });
+    </script>
 </body>
 </html>
